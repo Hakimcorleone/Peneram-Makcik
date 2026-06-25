@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #fff7e8;
+  color: #2a160c;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+::selection {
+  background: #f4d6a0;
+  color: #2a160c;
+}
+
+@layer components {
+  .section-shell {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-spacing {
+    @apply py-14 sm:py-16 lg:py-20;
+  }
+
+  .section-heading {
+    @apply text-3xl font-extrabold tracking-normal text-cocoa sm:text-4xl;
+  }
+
+  .section-copy {
+    @apply mt-3 max-w-2xl text-base leading-7 text-caramel sm:text-lg;
+  }
+
+  .primary-button {
+    @apply inline-flex min-h-12 items-center justify-center rounded-full bg-caramel px-6 py-3 text-sm font-bold text-white shadow-card transition hover:bg-cocoa focus:outline-none focus:ring-4 focus:ring-beige;
+  }
+
+  .secondary-button {
+    @apply inline-flex min-h-12 items-center justify-center rounded-full border border-caramel/25 bg-white px-6 py-3 text-sm font-bold text-caramel shadow-card transition hover:border-caramel hover:bg-beige/30 focus:outline-none focus:ring-4 focus:ring-beige;
+  }
+}

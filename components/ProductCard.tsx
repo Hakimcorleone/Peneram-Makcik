@@ -8,7 +8,10 @@ type ProductCardProps = {
 
 export default function ProductCard({ product }: ProductCardProps) {
   const hakim = contacts[0];
-  const hasPromo = "promoMessage" in product && "promoLabel" in product;
+  const promoAction =
+    "promoMessage" in product && "promoLabel" in product
+      ? { label: product.promoLabel, message: product.promoMessage }
+      : null;
 
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-lg border border-caramel/10 bg-white shadow-card">
@@ -61,14 +64,14 @@ export default function ProductCard({ product }: ProductCardProps) {
             {product.orderLabel}
           </a>
 
-          {hasPromo ? (
+          {promoAction ? (
             <a
               className="secondary-button w-full"
-              href={createWhatsAppLink(hakim.phoneInternational, product.promoMessage)}
+              href={createWhatsAppLink(hakim.phoneInternational, promoAction.message)}
               target="_blank"
               rel="noopener noreferrer"
             >
-              {product.promoLabel}
+              {promoAction.label}
             </a>
           ) : null}
         </div>
